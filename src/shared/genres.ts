@@ -1,4 +1,4 @@
-export enum Genre {
+export enum Genres {
   SCI_FI    = 'Science Fiction',
   SATIRE    = 'Satire',
   DRAMA     = 'Drama',

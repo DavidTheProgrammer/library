@@ -1,13 +1,15 @@
 import { Module } from '@nestjs/common';
 import { TypegooseModule } from 'nestjs-typegoose';
-import { BaseService } from './shared/services/base.service';
+import { BaseService } from './shared/base.service';
 import { AppController } from './app.controller';
-import { DB_CONNECTION } from '../connection';
+import { Connection } from './database/connection';
 import { UsersModule } from './users/users.module';
 
-
 @Module({
-  imports: [TypegooseModule.forRoot(DB_CONNECTION), UsersModule],
+  imports: [
+    TypegooseModule.forRoot(new Connection().local, { useNewUrlParser: true }),
+    UsersModule
+  ],
   controllers: [AppController],
   providers: [BaseService]
 })
