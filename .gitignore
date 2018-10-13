@@ -2,4 +2,10 @@
 node_modules/
 
 # Ignore the Database credentioals file
-connection.ts
+**/connection.ts
+
+# Dist folder 
+dist/
+
+# VS Code
+.vscode/

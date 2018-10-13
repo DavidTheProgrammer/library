@@ -1,17 +1,12 @@
 import { Module } from '@nestjs/common';
-import { UsersService } from './users.service';
 import { TypegooseModule } from 'nestjs-typegoose';
+import { UsersService } from './users.service';
 import { User } from './user.model';
+import { UsersController } from './users.controller';
 
 @Module({
-  imports: [
-    TypegooseModule.forFeature({
-      typegooseClass: User,
-      schemaOptions: {
-        timestamps: true
-      }
-    })
-  ],
-  providers: [UsersService]
+  imports: [TypegooseModule.forFeature(User)],
+  providers: [UsersService],
+  controllers: [UsersController]
 })
 export class UsersModule {}
