@@ -10,21 +10,21 @@ export class UsersController {
 
   @Get()
   async getUsers(): Promise<User[] | null> {
-    return await this._userService.findAll();
+    return this._userService.findAll();
   }
 
   @Post()
   async createUser(@Body() userDto: CreateUserDTO): Promise<User> {
-    return await this._userService.createUser(userDto);
+    return this._userService.createUser(userDto);
   }
 
   @Post('/add-genres')
   async addGenres(@Body() addGenresDto: { id: string; genres: Genres[] }): Promise<User> {
-    return await this._userService.addGenres(addGenresDto.id, addGenresDto.genres);
+    return this._userService.addGenres(addGenresDto.id, addGenresDto.genres);
   }
 
   @Post('/remove-genres')
   async removeGeneres(@Body() removeGenresDto: { id: string; genres: Genres[] }): Promise<User> {
-    return await this._userService.removeGeneres(removeGenresDto.id, removeGenresDto.genres);
+    return this._userService.removeGeneres(removeGenresDto.id, removeGenresDto.genres);
   }
 }

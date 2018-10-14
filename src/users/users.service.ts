@@ -21,8 +21,7 @@ export class UsersService extends BaseService<User> {
     newUser.lastName = lastName;
     newUser.genres = genres;
 
-    const result = await this.create(newUser);
-    return result;
+    return this.create(newUser);
   }
 
   async addGenres(userId: string, genres: Genres[]): Promise<User> {
